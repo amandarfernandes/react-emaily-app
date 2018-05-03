@@ -8,10 +8,10 @@ import reduxThunk from 'redux-thunk';
 import rootReducer from './store/reducers';
 
 import App from './App';
-//import registerServiceWorker from './registerServiceWorker';
-unregister();
-const store = createStore(rootReducer,{},applyMiddleware(reduxThunk));
+import registerServiceWorker from './registerServiceWorker';
 
+const store = createStore(rootReducer,{},applyMiddleware(reduxThunk));
+unregister();
 ReactDOM.render(
     <Provider store={store}>
     <App />
