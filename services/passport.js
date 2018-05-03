@@ -8,13 +8,13 @@ const User = mongoose.model('User');
 
 
 passport.serializeUser((user,done)=>{
-    done(null, user.id);
+    return done(null, user.id);
 });
 
 passport.deserializeUser(async (id, done)=>{
     try {
         let user  = await User.findById(id);
-        done(null,user)
+        return done(null,user);
     } catch(err) {
         console.log(error);
     }
@@ -28,17 +28,13 @@ passport.use(
         proxy: true
         }, 
     async function (accessToken, refreshToken, profile, done) {
-        //console.log('access token',accessToken);
-        //console.log('refresh token',refreshToken);
-        //console.log('profile',profile);
         try {
             const user = await User.findOne({ googleId: profile.id });
             if (!user) {
                 let addedUser = await User.create(new User({googleId:profile.id}));
-                done(null, addedUser)
-            } else {
-                done(null, user);
+                return done(null, addedUser);
             }
+            return done(null, user);
         } catch (error) {
             console.log(error);
         }

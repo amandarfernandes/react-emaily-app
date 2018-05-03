@@ -4,4 +4,4 @@ mongoose.set("debug",true);
 mongoose.Promise=Promise;
 mongoose.connect(keys.mongoURI, {keepAlive:true});
 
-//const User = require('./user');
+module.exports.User = require('./user');
