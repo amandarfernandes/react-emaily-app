@@ -9,7 +9,7 @@ import rootReducer from './store/reducers';
 
 import App from './App';
 //import registerServiceWorker from './registerServiceWorker';
-
+unregister();
 const store = createStore(rootReducer,{},applyMiddleware(reduxThunk));
 
 ReactDOM.render(
