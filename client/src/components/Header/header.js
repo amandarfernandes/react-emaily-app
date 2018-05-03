@@ -7,6 +7,7 @@ import Payments from '../Payments/Payments';
 
 class Header extends Component {
     renderNav() {
+        console.log(this.props.auth)
         switch (this.props.auth) {
             case null :
                 return <li>Loading</li>;
@@ -23,7 +24,6 @@ class Header extends Component {
         }
     }
     render() {
-        
         return (
         <nav>
             <div className="nav-wrapper">
