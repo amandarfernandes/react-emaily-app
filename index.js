@@ -9,7 +9,7 @@ require('./services/passport');
 const keys = require('./config/keys');
 const billingRoutes = require('./routes/billingRoutes');
 const authRoutes = require('./routes/authRoutes');
-const appRoutes = require('./routes/index');
+//const appRoutes = require('./routes/index');
 const PORT = process.env.PORT || 5000;
 
 const app = express();
